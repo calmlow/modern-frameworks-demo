@@ -1,62 +1,13 @@
 <!DOCTYPE html>
-<html ng-app="serverstatus">
+<html ng-app="serverStatus">
 <head>
-  <title>serverstatus</title>
-  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+  <title>Server Status Page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles/main.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-resource.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
   <script src="ui-bootstrap-tpls-2.2.0.min.js"></script>
-  <script>
-
-// Define the Angular module App
-var serverstatus = angular.module('serverstatus', ['ui.bootstrap']);
-
-
-/**
- * Our Service
- */
-serverstatus.service("OurService", function( $http ) {
-
-    this.getServers = function(){
-        var url = "./apiDataGetServers.json"
-
-        //$http.defaults.headers.common['Authorization'] = 'Basic ' + authdata;
-
-        return $http.get(url).then( function(resp) {
-            return resp.data;
-        });
-    };
-});
-
-
-/**
- * Our first Controller
- */
-serverstatus.controller('mainController', function($scope, $http, $interval, OurService) {
-  $scope.serverItems = [];
-  $scope.fieldtoOrderBy = "status"; // default ordering
-  $scope.searchValue = "";
-  $scope.reverse = false;
-
-  $scope.getServerItems = function(){
-
-      OurService.getServers().then(function(data) {
-          $scope.serverItems = data;
-      });
-
-      $scope.lastFetched = new Date().toLocaleString();
-  };
-
-  $scope.orderBy = function(fieldtoOrderBy) {
-      $scope.reverse = ($scope.fieldtoOrderBy === fieldtoOrderBy) ? !$scope.reverse : false;
-      $scope.fieldtoOrderBy = fieldtoOrderBy;
-  };
-  
-  $scope.getServerItems();
-  //$interval( $scope.getMatrix, (parseInt($scope.intervalRate)*1000)); // update every 2 min
-
-});
-
-  </script>
 </head>
 <body>
   <header>
@@ -74,76 +25,12 @@ serverstatus.controller('mainController', function($scope, $http, $interval, Our
   </header>
 
   <!-- start of the main view -->
-  <div class="container" role="main" id="main" ng-controller="mainController">
-
-    <p>
-      Here are our servers. Currently we have <strong>{{ serverItems.length }}</strong> servers.
-      Last checked {{ lastFetched }}. <a href ng-click="getServerItems()">Check now!</a>
-    </p>
-
-    <p>Type a filter or use the predefined buttons below.</p>
-
-    <form class="navbar-form navbar-left" role="search">
-      <div class="form-group">
-        <input type="text" ng-model="searchValue" class="form-control" placeholder="Type to Filter Server List" ng-change="filterItems()">
-      </div>
-
-      &nbsp;
-
-      <div class="btn-group" role="group" aria-label="...">
-        <button type="button" class="btn btn-info" ng-click="searchValue='ok'">
-          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-        </button>
-        <button type="button" class="btn btn-warning" ng-click="searchValue='warn'">
-          <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
-        </button>
-        <button type="button" class="btn btn-danger" ng-click="searchValue='remove'">
-          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-        </button>
-      </div>
-
-      <button type="button" class="btn btn-default" ng-click="searchValue='!ok'">
-        <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
-        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-      </button>
-    </form>
-
-    <table class="table table-striped table-hover" ng-show="serverItems.length">
-      <thead>
-        <tr>
-          <th class="name">&nbsp;</th>
-          <th class="name"><a href ng-click="orderBy('name')">Name <span class="glyphicon glyphicon-sort"></span></a></th>
-          <th class="name"><a href ng-click="orderBy('description')">Description <span class="glyphicon glyphicon-sort"></span></a></th>
-          <th class="name"><a href ng-click="orderBy('status')">Status <span class="glyphicon glyphicon-sort"></span></a></th>
-          <th class="name">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="server in serverItems | orderBy:fieldtoOrderBy:reverse | filter:searchValue track by $index">
-          <td><input type="checkbox" name="select"/></td>
-          <td>{{server.name}}</td>
-          <td>
-            <em style="cursor:pointer;" uib-tooltip="{{server.description}}">{{server.description | limitTo:20}}</em>
-          </td>
-          <td><span class="glyphicon glyphicon-{{server.status}}"></span></td>
-          <td>
-            <!-- Single button -->
-            <div class="btn-group" uib-dropdown is-open="status.isopen">
-              <button id="single-button" type="button" class="btn btn-default" uib-dropdown-toggle ng-disabled="disabled">
-                Actions <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
-                <li role="menuitem"><a href="#">View Details</a></li>
-                <li role="menuitem"><a href="#">Restart</a></li>
-                <li role="menuitem"><a href="#">Clear Logs</a></li>
-                <li class="divider"></li>
-                <li role="menuitem"><a href="#">Properties</a></li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table> 
+  <div class="container" role="main" id="main">
+    <div ng-view=""></div>
   </div>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/controllers/servers.js"></script>
+  <script src="scripts/services/servers.js"></script>
+
 </body>
 </html>
