@@ -13,12 +13,8 @@ angular.module('serverStatus').controller('ServersCtrl', function($scope, $http,
   $scope.searchValue = "";
   $scope.reverse = false;
 
-  $scope.getServerItems = function(){
-
-      OurService.getServers().then(function(data) {
-          $scope.serverItems = data;
-      });
-
+  $scope.getServerItems = function() {
+      $scope.serverItems = OurService.query(function() { console.log("...") });
       $scope.lastFetched = new Date().toLocaleString();
   };
 
