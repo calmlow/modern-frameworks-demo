@@ -26,15 +26,20 @@
   </div>
 </form>
 
-
 <table class="table table-hover" ng-show="serverItems.length">
   <thead>
     <tr>
       <th class="name">&nbsp;</th>
-      <th class="name"><a href ng-click="orderBy('name')">Name <span class="glyphicon glyphicon-sort"></span></a></th>
-      <th class="name"><a href ng-click="orderBy('description')">Description <span class="glyphicon glyphicon-sort"></span></a></th>
-      <th class="name"><a href ng-click="orderBy('status')">Status <span class="glyphicon glyphicon-sort"></span></a></th>
-      <th class="name">&nbsp;</th>
+      <th class="name"><a href ng-click="orderBy('name')">Name
+        <span class="glyphicon"
+        ng-class="{'glyphicon-triangle-top': reverse, 'glyphicon-triangle-bottom': !reverse}"
+        ng-show="fieldtoOrderBy=='name'"></span></a></th>
+      <th class="name"><a href ng-click="orderBy('description')">Description <span class="glyphicon"
+        ng-class="{'glyphicon-triangle-top': reverse, 'glyphicon-triangle-bottom': !reverse}"
+        ng-show="fieldtoOrderBy=='description'"></span></a></th>
+      <th class="name"><a href ng-click="orderBy('status')">Status <span class="glyphicon"
+        ng-class="{'glyphicon-triangle-top': reverse, 'glyphicon-triangle-bottom': !reverse}"
+        ng-show="fieldtoOrderBy=='status'"></span></a></th>
     </tr>
   </thead>
   <tbody>
@@ -56,9 +61,8 @@
         >
           <span class="glyphicon glyphicon-{{server.status}}"></span>
         </span>
-      </td>
-      <td>
         <!-- Single button -->
+        &nbsp;
         <div class="btn-group" uib-dropdown is-open="status.isopen">
           <button id="single-button" type="button" class="btn btn-default" uib-dropdown-toggle ng-disabled="disabled">
             Actions <span class="caret"></span>
