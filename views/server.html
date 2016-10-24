@@ -11,20 +11,20 @@
   <tbody>
     <tr ng-repeat="server in servers">
        <td>
-         PLACE ICON HERE
+         {{server.type}}
        </td>
        <td>
          <strong>
-           SERVER NAME HERE
+           {{server.name}}
          </strong>
        </td>
        <td>
          <em>
-           SERVER DESCRIPTION HERE
+           {{server.description}}
          </em>
        </td>
        <td>
-         SERVER STATUS HERE
+         {{server.status}}
        </td>
        <td>
          <div class="btn-group" uib-dropdown is-open="status.isopen">

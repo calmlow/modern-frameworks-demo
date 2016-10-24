@@ -44,7 +44,8 @@
 	4. Add ng-repeat
 	5. Add the mock server (explain that this is a fake API)
 	
-	
+6. Bind variables
+	1. Bind all variables
 	
 	
 		
