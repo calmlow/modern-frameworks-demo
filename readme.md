@@ -38,6 +38,12 @@
 	2. Add a sample row
 	
 5. Adding a service
+	1. Add the service file
+	2. Create a basic service (discuss the options)
+	3. include it in index.html
+	4. Add ng-repeat
+	5. Add the mock server (explain that this is a fake API)
+	
 	
 	
 	
