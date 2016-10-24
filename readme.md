@@ -62,7 +62,13 @@
 	5. Reuse refresh call
 	6. Ditch the "Old" stuff (intevall etc)
 	
-
+9. Implement refresh & filter
+	1. Add ordering and filtering to repeat
+	2. Add fields for sorting, reverse and filter
+	3. Add funtion to set sort items
+	4. Add missing css for search clear
+	
+	
 	
 	
 	

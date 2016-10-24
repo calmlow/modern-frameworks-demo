@@ -30,14 +30,14 @@
   <thead>
     <tr>
       <th class="name">&nbsp;</th>
-      <th class="name"><a href >Name <span class="glyphicon glyphicon-sort"></span></a></th>
-      <th class="name"><a href >Description <span class="glyphicon glyphicon-sort"></span></a></th>
-      <th class="name"><a href >Status <span class="glyphicon glyphicon-sort"></span></a></th>
+      <th class="name"><a href ng-click="orderBy('name')">Name <span class="glyphicon glyphicon-sort"></span></a></th>
+      <th class="name"><a href ng-click="orderBy('description')">Description <span class="glyphicon glyphicon-sort"></span></a></th>
+      <th class="name"><a href ng-click="orderBy('status')">Status <span class="glyphicon glyphicon-sort"></span></a></th>
       <th class="name">&nbsp;</th>
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="server in servers">
+    <tr ng-repeat="server in servers | orderBy:fieldtoOrderBy:reverse | filter:searchValue">
        <td>
          <span class="glyphicon"
             ng-class="{'glyphicon-globe': server.type=='worker', 'glyphicon-briefcase': server.type=='master', 'glyphicon-user': server.type=='ldap', 'glyphicon-transfer': server.type=='lb', 'glyphicon-asterisk': server.type=='id' }"
