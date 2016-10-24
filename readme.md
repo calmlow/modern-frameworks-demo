@@ -53,6 +53,17 @@
 	3. Add the status icon
 	4. Add the type icon
 	5. Add a color lable around status icon
+	
+8. Adding functions
+	1. Add top text.
+	2. Creat bound function (refresh())
+	3. Why is refresh "flickering" ?
+	4. Fix flickering
+	5. Reuse refresh call
+	6. Ditch the "Old" stuff (intevall etc)
+	
 
+	
+	
 	
 		

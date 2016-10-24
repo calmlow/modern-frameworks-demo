@@ -1,13 +1,14 @@
 'use strict';
 
 angular.module('serverStatus')
-  .controller('ServerCtrl', function($scope, $interval, ServerStatus) {
+  .controller('ServerCtrl', function($scope, ServerStatus) {
 
-    $scope.theValue = "Hello World";
-    $scope.count = 99;
+    $scope.refresh = function() {
+      ServerStatus.query(function(data) {
+        $scope.servers = data;
+      });
+    }
 
-    $scope.servers = ServerStatus.query();
-
-    $interval( function() { $scope.count = $scope.count +1 ; }, 1000);
+    $scope.refresh();
 
 });
