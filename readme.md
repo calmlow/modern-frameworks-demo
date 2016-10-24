@@ -32,7 +32,13 @@
 	3. Add routing
 	4. Explain why this is significant
 	
-4. Create the table
+4. Create a table
+	1. Show the table section on bootstrap docs page
+	2. Add basic table with headers
+	2. Add a sample row
+	
+5. Adding a service
+	
 	
 	
 		
