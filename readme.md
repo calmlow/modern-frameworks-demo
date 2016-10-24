@@ -47,5 +47,12 @@
 6. Bind variables
 	1. Bind all variables
 	
+7. Create icons and change styles
+	1. Show bootstrap icons
+	2. Show font awesome
+	3. Add the status icon
+	4. Add the type icon
+	5. Add a color lable around status icon
+
 	
 		
