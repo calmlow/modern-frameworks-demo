@@ -25,7 +25,14 @@
 		- Explain dependencies
 		- Explain functions (lambdas)
 
-3. 
+3. Create a view and add routing
+
+	1. Create the view
+	2. Add the ng-vire
+	3. Add routing
+	4. Explain why this is significant
+	
+4. Create the table
 	
 	
 		
