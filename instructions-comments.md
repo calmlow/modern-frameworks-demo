@@ -1,6 +1,6 @@
 # Instructions for us
 
-## 1. Create start page - (MATS)
+## 1. Create start page - (MATS) 74d2a76
 
 ### 1.1 Start by copying default tenmplate from here: http://getbootstrap.com/examples/theme/
 
@@ -44,7 +44,7 @@ Lets adjust the dro down so it appears on the right instead.
 
 ---
 
-## 2. Create angular-js application - (MICKE)
+## 2. Create angular-js application - (MICKE) b60c029
 
 Ok onto some Angular action!
 
@@ -84,7 +84,7 @@ As said before you do wanna split things up..
 
 ---
 
-## 3. Create a view and add routing - (MATS)
+## 3. Create a view and add routing - (MATS) 6da04f0
 
 ### 3.1 Create the view
 
@@ -108,7 +108,7 @@ _This is the placeholder for the templates to be shown._
 
 ---
 
-## 4. Create a table - (MICKE)
+## 4. Create a table - (MICKE) c05c3d9
 
 ### 4.1 Show the table section on bootstrap docs page
 
@@ -118,13 +118,19 @@ _This is the placeholder for the templates to be shown._
 
 ---
 
-## 5. Adding a service - (MATS)
+## 5. Adding a service - (MATS) d90ab5c
 
 ### 5.1 Add the service file
 
 Good practise is to separate services in different files. Split up things, just as in classic mvc.
 
+use strict is ECMAScript version 5, must for example declare variables.
+
 ### 5.2 Create a basic service
+
+The $resource component! 
+
+A factory which creates a resource object that lets you interact with RESTful server-side data sources.
 
 - discuss the options
 - Ajax cll
@@ -151,7 +157,7 @@ Användsbarheten är också viktigt. Magnling av data. Filtrering.
 
 ---
 
-## 6. Bind variables - (MICKE)
+## 6. Bind variables - (MICKE) 4c1d4e4
 
 ### 6.1 Bind all variables
 
@@ -160,7 +166,7 @@ Användsbarheten är också viktigt. Magnling av data. Filtrering.
 
 ---
 
-## 7. Create icons and change styles - (MATS)
+## 7. Create icons and change styles - (MATS) 0d1d3fd
 
 ### 7.1 Show bootstrap icons
 ### 7.2 Show font awesome
@@ -175,7 +181,7 @@ Font awesome, use that if you like better styling.
 
 ---
 
-## 8 Adding functions - (MICKE)
+## 8 Adding functions - (MICKE) d9b5706
 
 ### 8.1 Add top text.
 ### 8.2 Creat bound function (refresh())
@@ -186,7 +192,7 @@ Font awesome, use that if you like better styling.
 
 ---
 
-## 9. Implement refresh & filter - (MATS)
+## 9. Implement refresh & filter - (MATS) 9b00f48
 
 Focus on how easy it is. That we are really just manipulating java-lists. Never worrying about how it is reflected in the gui.
 The bind part does that for us.
@@ -196,4 +202,6 @@ The bind part does that for us.
 ### 9.3 Add funtion to set sort items
 ### 9.4 Add missing css for search clear
 
+
+## Done 35f556e
 
